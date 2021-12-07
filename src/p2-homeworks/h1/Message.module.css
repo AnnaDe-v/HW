@@ -1,0 +1,41 @@
+.message {
+    width: 100%;
+    height: 150px;
+    background-color: greenyellow;
+    padding: 5px 60px;
+}
+.avatar img{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+}
+
+.messageWrap {
+    height: 125px;
+    width: 200px;
+    padding: 10px 5px 5px 20px;
+    border-radius: 5px 5px 5px 0px;
+    background-color: black;
+    position: relative;
+}
+.textMessage {
+    color: darkgray;
+}
+.name {
+    color: aliceblue;
+}
+.time {
+    color: aliceblue;
+}
+
+.triangle {
+    background-color: black;
+    clip-path: polygon(50% 0%, 0% 100%, 50% 100%);
+    border: 1px solid goldenrod;
+    position: absolute;
+    top: 164px;
+    left: 39px;
+    height: 40px;
+    width: 40px;
+}
+

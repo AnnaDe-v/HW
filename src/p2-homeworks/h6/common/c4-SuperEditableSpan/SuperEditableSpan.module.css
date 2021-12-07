@@ -1,0 +1,7 @@
+.span {
+    display: inline-flex;
+    height: 24px;
+    /*padding-top: 5px;*/
+    cursor: pointer;
+    background-color: lightyellow;
+}

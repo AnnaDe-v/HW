@@ -1,0 +1,13 @@
+.btnClose {
+    background-color: red;
+    border-radius: 50%;
+    margin: 10px;
+}
+.btnPriority {
+    border: 1px solid goldenrod;
+    width: 100px;
+}
+.wrapBox {
+    width: 400px;
+    background-color: yellow;
+}

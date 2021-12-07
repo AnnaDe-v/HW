@@ -1,0 +1,12 @@
+.default {
+    background: lightyellow;
+}
+
+.default:disabled {
+    background: grey;
+    color: aliceblue;
+}
+
+.red {
+    background: red;
+}

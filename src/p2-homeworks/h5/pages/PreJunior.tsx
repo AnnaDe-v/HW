@@ -6,7 +6,7 @@ import HW4 from '../../h4/HW4'
 
 function PreJunior() {
     return (
-        <div>565656
+        <div>
             <HW1/>
             <HW2/>
             <HW3/>

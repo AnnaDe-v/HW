@@ -3,18 +3,18 @@ import classes from './Affairs.module.css';
 import {AffairType} from "./HW2";
 
 type AffairPropsType = {
-    // key не нужно типизировать
-    affair: Array<AffairType> // need to fix any
-    deleteAffairCallback: (_id: number) => void // need to fix any
+    affair: AffairType
+    deleteAffairCallback: (id: number) => void
 }
 
-function Affair(props: AffairType) {
-    const deleteCallback = () => {props.deleteAffairCallback(props.affair._id)}// need to fix
+function Affair(props: AffairPropsType) {
+    const deleteCallback = () => {props.deleteAffairCallback(props.affair._id)}
 
     return (
         <div>
             {props.affair.name}
             <button className={classes.btnClose} onClick={deleteCallback}>X</button>
+            <span>{props.affair.priority}</span>
         </div>
     )
 }

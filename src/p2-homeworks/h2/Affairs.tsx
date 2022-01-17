@@ -1,27 +1,32 @@
 import React from 'react'
 import Affair from './Affair'
 import {AffairType, FilterType} from './HW2'
-import classes from './Affairs.module.css';
+import s from './Affairs.module.css';
 
 type AffairsPropsType = { // need to fix any
     data: Array<AffairType>
-    setFilter: (value: FilterType) => void// ok
+    setFilter: (filter: FilterType) => void
     deleteAffairCallback: (_id: number) => void
+    filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
     const mappedAffairs = props.data.map((a: AffairType) => (
-        <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+        <Affair
+            key={a._id}
             affair={a}
             deleteAffairCallback={props.deleteAffairCallback}
         />
     ))
 
-    const setAll = () => {props.setFilter('all')} // need to fix
+    const setAll = () => {props.setFilter('all')}
     const setHigh = () => {props.setFilter('high')}
     const setMiddle = () => {props.setFilter('middle')}
     const setLow = () => {props.setFilter('low')}
+
+    const setClass = (filter: FilterType) => {
+        return s.btnPriority + (props.filter === filter ? ' ' + s.active : '')
+    }
 
     return (
         <>
@@ -29,10 +34,10 @@ function Affairs(props: AffairsPropsType) {
 
                 {mappedAffairs}
 
-                <button className={classes.btnPriority} onClick={setAll}>All</button>
-                <button className={classes.btnPriority} onClick={setHigh}>High</button>
-                <button className={classes.btnPriority} onClick={setMiddle}>Middle</button>
-                <button className={classes.btnPriority} onClick={setLow}>Low</button>
+                <button className={setClass('all')} onClick={setAll}>All</button>
+                <button className={setClass('high')} onClick={setHigh}>High</button>
+                <button className={setClass('middle')} onClick={setMiddle}>Middle</button>
+                <button className={setClass('low')} onClick={setLow}>Low</button>
             </div>
 
 

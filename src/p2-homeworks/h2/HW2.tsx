@@ -4,17 +4,16 @@ import classes from './Affairs.module.css';
 
 // types
 export type AffairPriorityType = 'high' | 'low' | 'middle'// need to fix any
-export type AffairType = any // need to fix any
 export type FilterType = 'all' | AffairPriorityType
-export type defaultAffairsType = {
-    _id: number,
-    name: string,
-    priority: string
+export type AffairType = {
+    _id: number
+    name: string
+    priority: AffairPriorityType
 }
 
 
 // constants
-const defaultAffairs: Array<defaultAffairsType> = [ // need to fix any+
+const defaultAffairs: AffairType[] = [ // need to fix any+
     {_id: 1, name: 'React', priority: 'high'},
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
@@ -23,18 +22,21 @@ const defaultAffairs: Array<defaultAffairsType> = [ // need to fix any+
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): any => { // need to fix any
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
     if (filter === 'all') return affairs
-    if (filter === 'low') return affairs.filter(a => a.priority === 'low')
-    if (filter === 'high') return affairs.filter(a => a.priority === 'high')
-    if (filter === 'middle') return affairs.filter(a => a.priority === 'middle')
+
+    else return affairs.filter(a => a.priority === filter)
+    // if (filter === 'low') return affairs.filter(a => a.priority === 'low')
+    // if (filter === 'high') return affairs.filter(a => a.priority === 'high')
+    // if (filter === 'middle') return affairs.filter(a => a.priority === 'middle')
 }
+
 export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => { // need to fix any
     return affairs.filter(a => a._id !== _id);
 }
 
 function HW2() {
-    const [affairs, setAffairs] = useState<Array<defaultAffairsType>>(defaultAffairs) // need to fix any+
+    const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // need to fix any+
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
@@ -51,6 +53,7 @@ function HW2() {
                     data={filteredAffairs}
                     setFilter={setFilter}
                     deleteAffairCallback={deleteAffairCallback}
+                    filter={filter}
                 />
             </div>
             <hr/>

@@ -11,3 +11,7 @@
     width: 400px;
     background-color: yellow;
 }
+.active {
+    color: white;
+    background-color: darkmagenta;
+}

@@ -6,15 +6,12 @@ import {loadingAC, stateType} from "./bll/loadingReducer";
 import {AppStoreType} from "./bll/store";
 
 function HW10() {
-    // useSelector, useDispatch
 
     const loading = useSelector<AppStoreType, boolean>(state => state.loading.loadingSt)
     const dispatch = useDispatch()
 
 
     const setLoading = () => {
-        // dispatch
-        // setTimeout
 
         dispatch(loadingAC(true))
         setTimeout(() => {

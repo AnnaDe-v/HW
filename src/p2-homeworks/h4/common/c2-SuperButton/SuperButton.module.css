@@ -1,5 +1,7 @@
 .default {
     background: lightyellow;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .default:disabled {

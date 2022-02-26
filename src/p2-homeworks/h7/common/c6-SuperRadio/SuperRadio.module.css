@@ -1,0 +1,19 @@
+label .custom_radio {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    background-size: 50% 50%;
+    margin-right: 0.5em;
+    width:20px;
+    height:20px;
+    border:1px solid darkgray;
+    border-radius: 50%;
+    outline:none;
+    box-shadow:0 0 5px 0px #cedcce inset;
+    z-index: 10;
+}
+
+label .custom_radio:checked  {
+    box-shadow: 0 0 0 0.2rem rgb(168, 231, 46);
+}
+

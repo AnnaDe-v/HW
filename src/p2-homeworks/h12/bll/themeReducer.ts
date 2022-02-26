@@ -1,13 +1,16 @@
-const initState = {
-    theme: 'red'
-};
-type initialStateType = {
-    theme: string
+
+export type initialStateType = {
+    theme: string,
+    themes: Array<string>
 }
 
-type ActionsTypes = changeThemeCType
+export const initialTheme: initialStateType = {
+    theme: 'red',
+    themes: ['dark', 'red', 'lightgreen', 'yellow']
+};
 
-export const themeReducer = (state: initialStateType = initState, action: ActionsTypes): ActionsTypes => {
+
+export const themeReducer = (state: initialStateType = initialTheme, action: ActionsTypes): initialStateType => {
     switch (action.type) {
 
         case "CHANGE-THEME": {
@@ -22,9 +25,11 @@ export const themeReducer = (state: initialStateType = initState, action: Action
     }
 };
 
-export const changeThemeC = (theme: string): any => {
+export const changeThemeC = (theme: string) => {
     return {type: 'CHANGE-THEME', theme} as const
 };
 
 
 type changeThemeCType = ReturnType<typeof changeThemeC>
+
+type ActionsTypes = changeThemeCType

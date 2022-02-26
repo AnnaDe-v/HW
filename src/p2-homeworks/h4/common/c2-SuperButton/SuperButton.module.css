@@ -12,3 +12,7 @@
 .red {
     background: red;
 }
+
+.default:active {
+    background: #c6ea17;
+}

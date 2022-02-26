@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./HW12.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../h10/bll/store";
 import {changeThemeC} from "./bll/themeReducer";
 import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
+import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
 
 
 
@@ -11,26 +12,30 @@ function HW12() {
     // const theme = 'some'; // useSelector
 
     const theme = useSelector<AppStoreType, string>(state => state.theme.theme);
+    const themes = useSelector<AppStoreType, string[]>(state => state.theme.themes);
+
     const dispatch = useDispatch()
+
 
     // useDispatch, onChangeCallback
 
-    const onChangeCallback = (e: any) => {
-        const value = e.currentTarget.value
-        dispatch(changeThemeC(value))
-        console.log(`callback: ${value}`)
+    const onChangeCallback = (theme: string) => {
+        dispatch(changeThemeC(theme))
     }
 
     return (
-
         <div className={s[theme]}>
             <hr/>
-            <span className={s[theme + '-text']}>
+            <span className={s[themes + '-text']}>
                 homeworks 12
+
+            <SuperRadio
+                options={themes}
+                value={theme}
+                onChangeOption={onChangeCallback}
+                type='radio'
+            />
             </span>
-            <SuperButton onClick={(e) => onChangeCallback(e)} value={'dark'}>dark</SuperButton>
-            <SuperButton onClick={(e) => onChangeCallback(e)} value={'red'}>red</SuperButton>
-            <SuperButton onClick={(e) => onChangeCallback(e)} value={'some'}>some</SuperButton>
             {/*should work (должно работать)*/}
             {/*SuperSelect or SuperRadio*/}
 

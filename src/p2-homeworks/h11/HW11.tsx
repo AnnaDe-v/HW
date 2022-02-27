@@ -18,10 +18,10 @@ function HW11() {
             <hr/>
             homeworks 11
             <div>
-                <span>{value1}</span>
+                <span>{minValue}</span>
                 <SuperRange
-                    value={value1}
-                    onChangeRange={setValue1}
+                    value={minValue}
+                    onChangeRange={setValue}
                 />
             </div>
             <hr/>
